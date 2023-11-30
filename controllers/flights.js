@@ -3,7 +3,8 @@ const Flight = require('../models/flight')
 module.exports = {
   new: newFlight,
   create,
-  index
+  index,
+  show
 }
 
 function newFlight(req, res) {
@@ -16,6 +17,9 @@ function newFlight(req, res) {
 async function create(req, res) {
   // console.log(req.body)
   res.redirect('/flights')
+  for (let key in req.body) {
+    if (req.body[key] === '') delete req.body[key];
+  }
   try {
     await Flight.create(req.body)
   } catch (err) {
@@ -27,4 +31,9 @@ async function create(req, res) {
 async function index(req, res) {
   const flights = await Flight.find({})
   res.render('flights/index' , { flights})
+}
+
+async function show(req, res) {
+  const flight = await Flight.findById(req.params.id)
+  res.render('flights/show', {flight})
 }
