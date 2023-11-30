@@ -10,6 +10,7 @@ module.exports = {
 function newFlight(req, res) {
   const newFlight = new Flight()
   res.render('flights/new' , {
+    title: "Add a Flight",
     errorMsg: '',
     newFlight })
 }
@@ -30,10 +31,14 @@ async function create(req, res) {
 
 async function index(req, res) {
   const flights = await Flight.find({})
-  res.render('flights/index' , { flights})
+  res.render('flights/index' , { 
+    title: 'All Flights',
+    flights})
 }
 
 async function show(req, res) {
   const flight = await Flight.findById(req.params.id)
-  res.render('flights/show', {flight})
+  res.render('flights/show', {
+    title: 'Flight Data',
+    flight})
 }
