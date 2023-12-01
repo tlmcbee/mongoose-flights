@@ -23,7 +23,7 @@ const flightSchema = new Schema({
     const finalDate = new Date(year + 1, month, day )
     return finalDate
   }},
-  destinations: [destinationSchema]
+  destinations: [destinationSchema],
   } , {
   timestamps: true
 })

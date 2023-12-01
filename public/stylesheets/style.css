@@ -100,3 +100,12 @@ table td {
 #add-destination-form *{
   margin:3px;
 }
+
+.badge {
+  background-color: #B8C0C2;
+  padding: .5rem;
+  margin: .5rem;
+  border-radius: .3rem;
+  font-size: .8rem;
+  text-align: center;
+}

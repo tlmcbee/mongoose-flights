@@ -33,7 +33,7 @@
 <% if (flight.destinations.length) { %>
   <table>
     <thead>
-      <tr>
+      <tr></tr>
         <th>Destination</th>
         <th>Arrival Date</th>
       </tr>
@@ -41,9 +41,8 @@
     <tbody>
       <% flight.destinations.forEach(function(d) { %>
         <tr>
-          <td><%= d.createdAt %></td>
           <td><%= d.airport %></td>
-          <td><%= d.arrival.toLocaleDateString() %></td>
+          <td><%= d.arrival.toDateString() %></td>
         </tr>
       <% }); %>
     </tbody>
@@ -51,5 +50,32 @@
   <% } else { %>
     <h5>No Arrivals</h5>
   <% } %>
+
+<div>
+  <h2>Tickets:</h2>
+  <a href="/flights/<%= flight._id %>/tickets/new">Add a Ticket</a>
+</div>
+
+<% if (tickets.length) { %>
+  <table>
+    <thead>
+      <tr></tr>
+        <th>Seat Number</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% tickets.forEach(function(f) { %>
+        <tr>
+          <td><%= f.seat %></td>
+          <td>$<%= f.price %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <% } else { %>
+    <h5>No Tickets Booked</h5>
+  <% } %>
+
 
 <%- include('../partials/footer') %>
