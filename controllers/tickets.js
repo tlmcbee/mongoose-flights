@@ -13,7 +13,6 @@ async function newTicket(req, res) {
 
 async function create(req, res) {
   req.body.flight = req.params.id
-  console.log(req.body)
   try {
     await Ticket.create(req.body)
     

@@ -51,10 +51,8 @@
     <h5>No Arrivals</h5>
   <% } %>
 
-<div>
-  <h2>Tickets:</h2>
-  <a href="/flights/<%= flight._id %>/tickets/new">Add a Ticket</a>
-</div>
+  <h2> Tickets</h2>
+  <a id="ticket-display" href="/flights/<%= flight._id %>/tickets/new">Add a Ticket</a>
 
 <% if (tickets.length) { %>
   <table>

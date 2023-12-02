@@ -31,7 +31,7 @@ async function create(req, res) {
 }
 
 async function index(req, res) {
-  const flights = await Flight.find({})
+  const flights = await Flight.find({}).sort('departs')
   res.render('flights/index' , { 
     title: 'All Flights',
     flights})
